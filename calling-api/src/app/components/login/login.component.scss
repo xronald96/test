@@ -1,0 +1,20 @@
+.content{
+    width: 100%;
+    position: absolute;
+    height: 89%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    .form-group{
+        width: 77%;
+    }
+    .error-message{
+        color: red;
+    }
+    .btn{
+        background-color: black !important;
+    }
+}

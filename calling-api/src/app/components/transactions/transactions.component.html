@@ -1,0 +1,27 @@
+<div class="content">
+  <div *ngIf="list && list.length===0" class="empty"> 
+    <b>No transactions</b>
+  </div>
+  <div *ngIf="list && list.length>0" class="list">
+    <div class="sort"> 
+      <b class="sort-item">Sort by: </b>
+      <button (click)="orderBy==='sort' ?  orderBy='': orderBy='sort'" class="btn btn-dark sort-item">Date</button> 
+      <button *ngIf="orderBy==='sort'" (click)="filterBy('asc')" class="btn btn-dark sort-item">Asc</button> 
+      <button *ngIf="orderBy==='sort'" (click)="filterBy('desc')" class="btn btn-dark sort-item">Desc</button> 
+      <button (click)="orderBy='description'" class="btn btn-dark sort-item">Description</button> 
+      <input [(ngModel)]="text" *ngIf="orderBy==='description'" class="sort-item form-control" type="text"> 
+      <button (click)="filterBy()" *ngIf="orderBy==='description'" class="btn btn-dark">Search</button>
+    </div>
+    <div class="card" *ngFor="let transaction of list">
+      <div class="header-card">
+        <p> <b>Date: </b> {{transaction.date | date: "medium"}}</p>
+      </div>
+      <div class="body-card">
+        <p> <b>Amount: </b> {{transaction.amount}}</p>
+        <p> <b>Fee: </b> {{transaction.fee}}</p>
+        <p> <b>Description: </b> {{transaction.description}}</p>
+      </div>
+      <div class="footer-card"></div>
+    </div>
+  </div>
+</div>
